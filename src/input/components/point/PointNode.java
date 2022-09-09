@@ -37,25 +37,37 @@ public class PointNode
 	@Override
 	public int hashCode()
 	{
+		//create hash code for node
 		return Double.valueOf(_x).hashCode() + Double.valueOf(_y).hashCode();
 	}
+	/**
+	 * checks if an object is the same node as one given
+	 */
 	@Override
 	public boolean equals(Object obj)
 	{
+		//if object is null return false
 		if (obj == null) return false;
+		//check that object is in the class, if not return false
 		if (this.getClass() != obj.getClass()) return false;
+		//turn the obj into a point node
 		PointNode P = (PointNode) obj;
 		
 		//if(P.getX()-this.getX() > MathUtilities.EPSILON || P.getX()-this.getX() < -MathUtilities.EPSILON) return false;
 		//if(P.getY()-this.getY() > MathUtilities.EPSILON || P.getY()-this.getY() < -MathUtilities.EPSILON) return false;
 		
+		//If the x and y values are the same, return true
 		if(MathUtilities.doubleEquals(P.getX(), this.getX()) && MathUtilities.doubleEquals(P.getY(), this.getY())) return true;
+		//if they are not the same return false
 		return false;
 	}
+	/**
+	 * a method that will turn the node into a string (x,y)
+	 */
 	@Override
 	public String toString()
 	{
-		
+		//return node as a string
 		return ( "(" + this.getX() + "," + this.getY() + ")");
 	}
 }
